@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="664.0" prefWidth="988.0" stylesheets="@../resources/WinStyle.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox alignment="CENTER" layoutX="98.0" layoutY="55.0" prefHeight="439.0" prefWidth="657.0" styleClass="VBoxTarjeta2" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
+         <children>
+            <VBox alignment="CENTER_LEFT" prefHeight="136.0" prefWidth="888.0">
+               <children>
+                  <Label prefHeight="93.0" prefWidth="838.0" styleClass="LabelTitulo3" text="Diseño Trámites">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="50.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </VBox>
+            <VBox prefHeight="0.0" prefWidth="888.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="260.0" prefWidth="888.0" spacing="5.0">
+                     <children>
+                        <JFXTextField prefHeight="26.0" prefWidth="572.0" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets left="50.0" />
+                           </HBox.margin>
+                        </JFXTextField>
+                        <JFXButton fx:id="btnGuardar13" onAction="#onActionBtnGuardar" prefHeight="39.0" prefWidth="121.0" ripplerFill="#333645" text="Buscar">
+                           <styleClass>
+                              <String fx:value="jfx-buttonStandard1" />
+                              <String fx:value="label1" />
+                           </styleClass>
+                        </JFXButton>
+                        <JFXButton fx:id="btnGuardar1" onAction="#onActionBtnGuardar" prefHeight="35.0" prefWidth="98.0" ripplerFill="#333645" text="Eliminar">
+                           <HBox.margin>
+                              <Insets right="50.0" />
+                           </HBox.margin>
+                           <styleClass>
+                              <String fx:value="jfx-buttonStandard1" />
+                              <String fx:value="label1" />
+                           </styleClass>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="120.0" prefWidth="888.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                     <children>
+                        <JFXButton fx:id="btnGuardar11" onAction="#onActionBtnGuardar" prefWidth="142.0" ripplerFill="#333645" text="Variaciones">
+                           <styleClass>
+                              <String fx:value="jfx-buttonStandard" />
+                              <String fx:value="label1" />
+                           </styleClass>
+                           <HBox.margin>
+                              <Insets left="50.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="btnGuardar12" onAction="#onActionBtnGuardar" prefWidth="142.0" ripplerFill="#333645" text="Requisitos">
+                           <styleClass>
+                              <String fx:value="jfx-buttonStandard" />
+                              <String fx:value="label1" />
+                           </styleClass>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="395.0" prefWidth="888.0">
+               <children>
+                  <VBox alignment="CENTER_RIGHT" prefHeight="213.0" prefWidth="888.0">
+                     <children>
+                        <JFXButton fx:id="btnCancelar1" onAction="#onActionBtnCancelar" prefHeight="0.0" prefWidth="146.0" ripplerFill="#333645" text="Agregar">
+                           <styleClass>
+                              <String fx:value="jfx-buttonStandard" />
+                              <String fx:value="label1" />
+                           </styleClass>
+                           <VBox.margin>
+                              <Insets right="50.0" />
+                           </VBox.margin>
+                        </JFXButton>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="432.0" prefWidth="888.0">
+                     <children>
+                        <TableView prefHeight="274.0" prefWidth="787.0">
+                          <columns>
+                            <TableColumn prefWidth="86.39996182918549" text="ID" />
+                            <TableColumn minWidth="0.0" prefWidth="232.80004119873047" text="Variación" />
+                              <TableColumn prefWidth="225.59994506835938" text="Estado" />
+                              <TableColumn prefWidth="121.5999755859375" text="Grupo de exclusión" />
+                              <TableColumn prefWidth="126.4000244140625" text="Acciones" />
+                          </columns>
+                           <VBox.margin>
+                              <Insets left="50.0" right="50.0" />
+                           </VBox.margin>
+                        </TableView>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="140.0" prefWidth="888.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="74.0" prefWidth="888.0" spacing="300.0">
+                     <children>
+                        <JFXButton fx:id="btnCancelar" onAction="#onActionBtnCancelar" prefHeight="7.0" prefWidth="146.0" ripplerFill="#333645" text="Cancelar">
+                           <styleClass>
+                              <String fx:value="jfx-buttonStandard" />
+                              <String fx:value="label1" />
+                           </styleClass>
+                        </JFXButton>
+                        <JFXButton fx:id="btnGuardar" onAction="#onActionBtnGuardar" prefHeight="9.0" prefWidth="146.0" ripplerFill="#333645" text="Guardar">
+                           <styleClass>
+                              <String fx:value="jfx-buttonStandard" />
+                              <String fx:value="label1" />
+                           </styleClass>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
