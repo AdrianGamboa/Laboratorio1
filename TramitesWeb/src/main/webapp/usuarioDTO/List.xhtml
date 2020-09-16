@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListUsuarioDTOTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListUsuarioDTOEmpty}" rendered="#{usuarioDTOController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{usuarioDTOController.items.rowCount > 0}">
+                    <h:outputText value="#{usuarioDTOController.pagination.pageFirstItem + 1}..#{usuarioDTOController.pagination.pageLastItem + 1}/#{usuarioDTOController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{usuarioDTOController.previous}" value="#{bundle.Previous} #{usuarioDTOController.pagination.pageSize}" rendered="#{usuarioDTOController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{usuarioDTOController.next}" value="#{bundle.Next} #{usuarioDTOController.pagination.pageSize}" rendered="#{usuarioDTOController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{usuarioDTOController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{usuarioDTOController.prepareView}" value="#{bundle.ListUsuarioDTOViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{usuarioDTOController.prepareEdit}" value="#{bundle.ListUsuarioDTOEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{usuarioDTOController.destroy}" value="#{bundle.ListUsuarioDTODestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{usuarioDTOController.prepareCreate}" value="#{bundle.ListUsuarioDTOCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListUsuarioDTOIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListTramiteTipoDTOTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListTramiteTipoDTOEmpty}" rendered="#{tramiteTipoDTOController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{tramiteTipoDTOController.items.rowCount > 0}">
+                    <h:outputText value="#{tramiteTipoDTOController.pagination.pageFirstItem + 1}..#{tramiteTipoDTOController.pagination.pageLastItem + 1}/#{tramiteTipoDTOController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{tramiteTipoDTOController.previous}" value="#{bundle.Previous} #{tramiteTipoDTOController.pagination.pageSize}" rendered="#{tramiteTipoDTOController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{tramiteTipoDTOController.next}" value="#{bundle.Next} #{tramiteTipoDTOController.pagination.pageSize}" rendered="#{tramiteTipoDTOController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{tramiteTipoDTOController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{tramiteTipoDTOController.prepareView}" value="#{bundle.ListTramiteTipoDTOViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{tramiteTipoDTOController.prepareEdit}" value="#{bundle.ListTramiteTipoDTOEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{tramiteTipoDTOController.destroy}" value="#{bundle.ListTramiteTipoDTODestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{tramiteTipoDTOController.prepareCreate}" value="#{bundle.ListTramiteTipoDTOCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListTramiteTipoDTOIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -48,23 +48,15 @@ public class LoginController implements Initializable {
 
     @FXML
     private void btnIniciaSesionAction(ActionEvent event) throws IOException 
-    {
-            try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("org/una/tramitesmunicipales/view/Dashboard.fxml")); 
-            Parent root = loader.load();
-  
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Menu principal");
-            stage.show();
-            } catch (IOException ex) 
-            {System.err.println(ex);}
-            
-             //Cierra la ventana actual
-             Node source = (Node) event.getSource();
-             Stage stage = (Stage) source.getScene().getWindow();
-             stage.close();
+    {    
+        Parent tableViewParent = FXMLLoader.load(getClass().getResource("/org/una/tramitesmunicipales/view/Dashboard.fxml"));
+        Scene tableViewScene = new Scene(tableViewParent);
         
+        
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(tableViewScene);
+        window.show();
     }
     
     public void start(Stage stage) throws Exception {
